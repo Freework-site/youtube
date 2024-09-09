@@ -1,0 +1,134 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Downloader</title>
+    <style>
+      body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.header img {
+  margin-top: 10px;
+}
+
+.input-section input {
+  width: 60%;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.input-section button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  background-color: #f7063a;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.info-section h2 {
+  margin-top: 40px;
+}
+
+.grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .grid-item {
+
+            text-align: center;
+            place-items: center;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .grid-item img {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .grid-item h3 {
+            margin: 16px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .grid-item p {
+            margin: 0 16px 16px;
+            color: #666;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  margin-top: 40px;
+}
+.logo
+{
+    width: 120px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+      </div>
+
+      <div class="input-section">
+        <h1>YT: YouTube Video Downloader</h1>
+        <form method="POST" onsubmit="showLoading()">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Download Video</button>
+        </form>
+      </div>
+
+      <div class="info-section">
+        <h2>How it Works</h2>
+        <p>Paste your YouTube link above and click Download to save the video to your device.</p>
+      </div>
+
+      <div class="grid-section">
+        <div class="grid-item">
+          <img src="{% static 'images/clock.png' %}" alt="Feature 1">
+          <h3>Efficient Video Downloads</h3>
+          <p>YT1s enables quick and efficient downloading of YouTube videos, allowing users to save their favorite content for offline viewing hassle-free. Its streamlined process ensures prompt access to videos, enhancing user convenience and satisfaction.</p>
+        </div>
+        <div class="grid-item">
+          <img src="{% static 'images/user.png' %}" alt="Feature 2">
+          <h3>User-Friendly Interface</h3>
+          <p>With its simple and intuitive interface, YT1s makes the video downloading process accessible to users of all technical levels. Clear instructions and easy navigation contribute to a seamless experience, enabling even novice users to download videos effortlessly.</p>
+        </div>
+        <div class="grid-item">
+          <img src="{% static 'images/safe.png' %}" alt="Feature 3">
+          <h3>Cross-Platform Compatibility</h3>
+          <p>YT1s is compatible with various devices and operating systems, including desktop computers, laptops, smartphones, and tablets. This broad compatibility ensures users can access the platform and download videos regardless of their preferred device, enhancing accessibility and convenience.</p>
+        </div>
+        <!-- Repeat for more grid items -->
+      </div>
+
+      <footer>
+        <p>© 2024 YT Downloader | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </footer>
+</body>
+</html>
